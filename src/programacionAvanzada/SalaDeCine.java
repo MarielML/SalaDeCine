@@ -12,7 +12,7 @@ public class SalaDeCine {
 		this.cantidadDeButacasPorFila = cantidadDeButacasPorFila;
 		this.butacas = new Boolean[cantidadDeFilas][cantidadDeButacasPorFila];
 		for(int i = 0; i < cantidadDeFilas; i++) {
-			for(int j = 0; i < cantidadDeButacasPorFila; j++) {
+			for(int j = 0; j < cantidadDeButacasPorFila; j++) {
 				this.butacas[i][j] = false;
 			}	
 		}
@@ -38,7 +38,7 @@ public class SalaDeCine {
 	public Integer consultarCantidadDeButacasOcupadas() {
 		Integer cantidadDeButacasOcupadas = 0;
 		for(int i = 0; i < this.cantidadDeFilas; i++) {
-			for(int j = 0; i < this.cantidadDeButacasPorFila; j++) {
+			for(int j = 0; j < this.cantidadDeButacasPorFila; j++) {
 				if(consultarSiEstaOcupada(i, j) == true) {
 					cantidadDeButacasOcupadas++;
 				}
