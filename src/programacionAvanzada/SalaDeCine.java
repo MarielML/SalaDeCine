@@ -25,4 +25,13 @@ public class SalaDeCine {
 		}
 		return estaOcupada;
 	}
+	
+	public Boolean ocuparButaca(Integer fila, Integer butaca) {
+		Boolean sePudoOcuparLaButaca = false;
+		if(consultarSiEstaOcupada(fila, butaca) == false) {
+			this.butacas[fila][butaca] = true;
+			sePudoOcuparLaButaca = true;
+		}
+		return sePudoOcuparLaButaca;
+	}
 }
