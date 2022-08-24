@@ -34,4 +34,22 @@ public class SalaDeCine {
 		}
 		return sePudoOcuparLaButaca;
 	}
+	
+	public Integer consultarCantidadDeButacasOcupadas() {
+		Integer cantidadDeButacasOcupadas = 0;
+		for(int i = 0; i < this.cantidadDeFilas; i++) {
+			for(int j = 0; i < this.cantidadDeButacasPorFila; j++) {
+				if(consultarSiEstaOcupada(i, j) == true) {
+					cantidadDeButacasOcupadas++;
+				}
+			}	
+		}
+		return cantidadDeButacasOcupadas;
+	}
+	
+	public Boolean hayEspacioPara(Integer cantidadDePersonas) {
+		Boolean hayEspacio = false;
+		Integer cantidadDeButacasLibres = 0;
+		return false;
+	}
 }
