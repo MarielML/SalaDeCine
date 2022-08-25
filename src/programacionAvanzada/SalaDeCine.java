@@ -19,9 +19,11 @@ public class SalaDeCine {
 	}
 	
 	public Boolean consultarSiEstaOcupada(Integer fila, Integer butaca) {
-		Boolean estaOcupada = false;
+		Boolean estaOcupada;
 		if(this.butacas[fila][butaca] == true) {
 			estaOcupada = true;
+		} else {
+			estaOcupada = false;
 		}
 		return estaOcupada;
 	}
@@ -48,8 +50,20 @@ public class SalaDeCine {
 	}
 	
 	public Boolean hayEspacioPara(Integer cantidadDePersonas) {
-		Boolean hayEspacio = false;
+		Boolean hayEspacio;
 		Integer cantidadDeButacasLibres = 0;
-		return false;
+		for(int i = 0; i < this.cantidadDeFilas; i++) {
+			for(int j = 0; j < this.cantidadDeButacasPorFila; j++) {
+				if(this.butacas[i][j] == false) {
+					cantidadDeButacasLibres++;
+				}
+			}	
+		}
+		if(cantidadDeButacasLibres >= cantidadDePersonas) {
+			hayEspacio = true;
+		} else {
+			hayEspacio = false;
+		}
+		return hayEspacio;
 	}
 }
