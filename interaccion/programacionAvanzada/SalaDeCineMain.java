@@ -26,6 +26,7 @@ public class SalaDeCineMain {
 		System.out.println("1- Ocupar una butaca");
 		System.out.println("2- Consultar si una butaca esta ocupada");
 		System.out.println("3- Consultar la cantidad de butacas ocupadas");
+		System.out.println("4- Consultar si hay espacios contiguos para X personas");
 		System.out.println("5- Salir");
 	}
 
@@ -49,6 +50,8 @@ public class SalaDeCineMain {
 		case 3:
 			consultarCantidadDeButacasOcupadas(actual);
 			break;
+		case 4:
+			consultarSiHayEspacio(teclado, actual);
 		default:
 			System.out.println("Error!");
 			break;
@@ -69,7 +72,7 @@ public class SalaDeCineMain {
 		}
 	}
 	
-	public static void consultarSiEstaOcupada(Scanner teclado, SalaDeCine actual) {
+	private static void consultarSiEstaOcupada(Scanner teclado, SalaDeCine actual) {
 		System.out.println("Ingresa la fila:");
 		Integer fila = teclado.nextInt();
 		System.out.println("Ingresa la butaca:");
@@ -81,8 +84,18 @@ public class SalaDeCineMain {
 		}
 	}
 	
-	public static void consultarCantidadDeButacasOcupadas(SalaDeCine actual) {
+	private static void consultarCantidadDeButacasOcupadas(SalaDeCine actual) {
 		Integer cantidadDeButacasOcupadas = actual.consultarCantidadDeButacasOcupadas();
 		System.out.println("Hay " + cantidadDeButacasOcupadas + " butacas ocupadas");
+	}
+	
+	private static void consultarSiHayEspacio(Scanner teclado, SalaDeCine actual) {
+		System.out.println("Ingresa la cantidad de personas:");
+		Integer cantidadDePersonas = teclado.nextInt();
+		if(actual.hayEspacioPara(cantidadDePersonas) == true) {
+			System.out.println("Hay espacio");
+		} else {
+			System.out.println("No hay espacio");
+		}
 	}
 }
